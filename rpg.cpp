@@ -1,6 +1,8 @@
 #include <string>
+#include <cstring>
 #include <iostream>
 #include <vector>
+#include <bits/stdc++.h>
 #include "player.h"
 
 using namespace std;
@@ -15,12 +17,13 @@ class Player
 public:
     string getName()
     {
+        transform(name.begin(), name.end(), name.begin(), ::toupper);
         return name;
     };
 
-    string getRace()
+    Race getRace()
     {
-        return whatRace();
+        return race;
     };
 
     int getHitPoints()
@@ -122,7 +125,7 @@ int main()
     string charName;
     while (ch != 4)
     {
-        cout << "CHARACTER CREATION" << endl;
+        cout << "\nCHARACTER CREATION" << endl;
         cout << "1. Create a Warrior" << endl;
         cout << "2. Create a Priest" << endl;
         cout << "3. Create a Mage" << endl;
@@ -187,26 +190,26 @@ int main()
             }
         }
     }
-    cout << "\n---------------";
+    cout << "\n\n---------------";
     cout << "\nWARRIORS LIST: ";
     cout << "\n---------------";
     for (int i = 0; i < (int)warrior.size(); i++)
     {
-        cout << "\nI am a warrior with name " << warrior[i].getName() << " and with race " << warrior[i].getRace() << " and my attack is: " << warrior[i].attack();
+        cout << "\nI am a WARRIOR with name " << warrior[i].getName() << " and with race " << warrior[i].whatRace() << " and my attack is: " << warrior[i].attack();
     }
-    cout << "\n---------------";
+    cout << "\n\n---------------";
     cout << "\nPRIESTS LIST: ";
     cout << "\n---------------";
     for (int i = 0; i < (int)priest.size(); i++)
     {
-        cout << "\nI am a priest with name " << priest[i].getName() << " and with race " << priest[i].getRace() << " and my attack is: " << priest[i].attack();
+        cout << "\nI am a PRIEST with name " << priest[i].getName() << " and with race " << priest[i].whatRace() << " and my attack is: " << priest[i].attack();
     }
-    cout << "\n---------------";
+    cout << "\n\n---------------";
     cout << "\nMAGE LIST: ";
     cout << "\n---------------";
     for (int i = 0; i < (int)mage.size(); i++)
     {
-        cout << "\nI am a mage with name " << mage[i].getName() << " and with race " << mage[i].getRace() << " and my attack is: " << mage[i].attack();
+        cout << "\nI am a MAGE with name " << mage[i].getName() << " and with race " << mage[i].whatRace() << " and my attack is: " << mage[i].attack();
     }
 
     return 0;
