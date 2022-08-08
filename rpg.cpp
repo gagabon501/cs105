@@ -17,7 +17,7 @@ class Player
 public:
     string getName()
     {
-        transform(name.begin(), name.end(), name.begin(), ::toupper);
+        transform(name.begin(), name.end(), name.begin(), ::toupper); // return the name in uppercase
         return name;
     };
 
@@ -142,8 +142,10 @@ int main()
             cout << "5. Troll\n";
             cout << "Choice: ";
             cin >> raceType;
+
             cout << "\nWhat would you like to name your character? ";
             cin >> charName;
+
             switch (ch)
             {
             case 1:

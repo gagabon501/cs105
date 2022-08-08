@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/gag501/Documents/00_DipSoftwareDev/Assessments/CS105_Development_Principles_2/cs105'
+make: Leaving directory '/home/gag501/Documents/00_DipSoftwareDev/Assessments/CS105_Development_Principles_2/cs105'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
