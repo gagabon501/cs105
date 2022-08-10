@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug 10 12:53:50 2022
+# Make data base, printed on Wed Aug 10 20:45:47 2022
 
 # Variables
 
@@ -101,13 +101,13 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 3993
+VSCODE_PID = 6114
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/2764,unix/pop-os:/tmp/.ICE-unix/2764
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/2881,unix/pop-os:/tmp/.ICE-unix/2881
 # automatic
 *F = $(notdir $*)
 # environment
@@ -151,7 +151,7 @@ LC_MONETARY = en_US.UTF-8
 # environment
 LC_TIME = en_US.UTF-8
 # environment
-INVOCATION_ID = a79534b9a57747f585dd89e8f81eb959
+INVOCATION_ID = 8a4ed11c04f645d49ad49beb3324eca6
 # environment
 USERNAME = gag501
 # environment
@@ -183,7 +183,7 @@ GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 2787
+SYSTEMD_EXEC_PID = 2904
 # environment
 DISPLAY = :1
 # environment
@@ -195,11 +195,11 @@ DEFAULTS_PATH = /usr/share/gconf/pop.default.path
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2470
+MANAGERPID = 2552
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3993
+GIO_LAUNCHED_DESKTOP_FILE_PID = 6114
 # environment
 _ = /usr/share/code/code
 # environment
@@ -207,13 +207,14 @@ LC_PAPER = en_US.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
+ 
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 nodebook_jwtPrivateKey = Wakoy1298
 # environment
 NVM_CD_FLAGS = 
 # environment
-JOURNAL_STREAM = 8:42395
+JOURNAL_STREAM = 8:41529
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -282,7 +283,6 @@ all:
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
- 
 
 # Not a target:
 makefile:
@@ -312,6 +312,6 @@ GNUmakefile:
 # strcache performance: lookups = 26 / hit rate = 11%
 # hash-table stats:
 # Load=23/8192=0%, Rehash=0, Collisions=0/26=0%
-# Finished Make data base on Wed Aug 10 12:53:50 2022
+# Finished Make data base on Wed Aug 10 20:45:47 2022
 
  
