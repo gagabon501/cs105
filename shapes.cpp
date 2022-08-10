@@ -87,19 +87,17 @@ public:
     }
 
     // Default function - based on a rectangle
-    // float calculateArea(float b, float h)
+
     void calculateArea()
     {
-        // result = b * h;
+
         result = base * height;
-        // return result;
     }
 
     // float calculatePerimeter(float b, float h)
     void calculatePerimeter()
     {
         result = 2 * (base + height);
-        // return result;
     }
 
     void getData()
@@ -144,7 +142,6 @@ public:
         setHeight(side); // update the height
     }
 
-    // void drawShape(int b, int h)
     void drawShape()
     {
 
@@ -176,13 +173,11 @@ public:
         setSide(side);     // update side
     }
 
-    // float calculateArea(float b, float h) // overloading this function - area of the triangle
     void calculateArea() // overloading this function - area of the triangle
     {
         float result;
         float b = getBase();
         float h = getHeight();
-        float s = getSide();
         result = 0.5 * b * h; // A = 1/2 * base * height
         setResult(result);    // update result based on this formula for the triangle
     }
@@ -268,7 +263,6 @@ public:
 
                 if (r2 < (r * r))
                 {
-
                     canvas[row][col] = '.'; // any value that is within the square of the radius, save a dot (.)
                 }
             }
@@ -280,7 +274,6 @@ public:
 
             for (int col = 0; col < SIZE; col++)
             {
-
                 cout << canvas[row][col] << " ";
             }
 
@@ -299,6 +292,7 @@ void showTriangle();
 void showCircle();
 void showMainMenu();
 
+// main function
 int main()
 {
     showMainMenu();
@@ -497,14 +491,6 @@ void showCircle()
 {
 
     Circle c;
-
-    // cout << "\n\n*** CIRCLE *** ";
-    // c.getData();
-    // c.calculateArea();
-    // cout << "Area of circle. ";
-    // c.giveResult();
-    // cout << " sq.cm.\n";
-    // c.drawShape();
 
     int choice = 0;
     vector<string> menu = {
