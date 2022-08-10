@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <math.h>
 
 using namespace std;
 
@@ -81,12 +82,12 @@ public:
 
     void drawShape(int b, int h)
     {
-        // base shape is a triangle
+        // base shape is a rectangle
         cout << endl;
         for (int y = 1; y <= h / 2; y++)
         {
 
-            cout << repl('*', b) << endl;
+            cout << repl('.', b) << endl;
         }
         cout << endl;
     }
@@ -112,7 +113,7 @@ public:
         for (int y = 1; y <= h; y++)
         {
 
-            cout << repl('*', b * 2) << endl;
+            cout << repl('.', b * 2) << endl;
         }
         cout << endl;
     }
@@ -133,14 +134,14 @@ public:
     }
     void drawShape(int b, int h)
     {
-        // base shape is a triangle
+
         int multiplier = 0;
         multiplier = b / h;
-        cout << "\n*" << endl;
+        cout << "\n." << endl;
         for (int y = 1; y <= h; y++)
         {
 
-            cout << repl('*', multiplier * y) << endl;
+            cout << repl('.', multiplier * y) << endl;
         }
         cout << endl;
     }
@@ -165,6 +166,53 @@ public:
         setResult(result);        // update result based on this formula for the circle
         return result;
     }
+
+    void drawShape(int r)
+    {
+        const int SIZE = 2 * r;
+
+        char canvas[SIZE][SIZE];
+
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                canvas[i][j] = ' ';
+            }
+        }
+
+        for (int row = 0; row < SIZE; row++)
+        {
+
+            for (int col = 0; col < SIZE; col++)
+            {
+
+                int x = col - SIZE / 2;
+                int y = SIZE / 2 - row;
+
+                int r2 = x * x + y * y;
+
+                if (r2 < (r * r))
+                {
+
+                    canvas[row][col] = '.';
+                }
+            }
+        }
+
+        // print
+        for (int row = 0; row < SIZE; row++)
+        {
+
+            for (int col = 0; col < SIZE; col++)
+            {
+
+                cout << canvas[row][col] << " ";
+            }
+
+            cout << endl;
+        }
+    }
 };
 
 int main()
@@ -175,7 +223,7 @@ int main()
     r.calculateArea(r.getBase(), r.getHeight());
     cout << "Area of rectangle. ";
     r.giveResult();
-    cout << " sq.cm.";
+    cout << " sq.cm.\n";
 
     r.drawShape(r.getBase(), r.getHeight());
 
@@ -185,7 +233,7 @@ int main()
     s.calculateArea(s.getBase(), s.getHeight());
     cout << "Area of square. ";
     s.giveResult();
-    cout << " sq.cm.";
+    cout << " sq.cm.\n";
     s.drawShape(s.getBase(), s.getHeight());
 
     Triangle t;
@@ -194,7 +242,7 @@ int main()
     t.calculateArea(t.getBase(), t.getHeight());
     cout << "Area of rectangle. ";
     t.giveResult();
-    cout << " sq.cm.";
+    cout << " sq.cm.\n";
     t.drawShape(t.getBase(), t.getHeight());
 
     Circle c;
@@ -203,7 +251,8 @@ int main()
     c.calculateArea(c.getRadius());
     cout << "Area of circle. ";
     c.giveResult();
-    cout << " sq.cm.";
+    cout << " sq.cm.\n";
+    c.drawShape(c.getRadius());
 
     return 0;
 }
