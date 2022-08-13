@@ -54,19 +54,21 @@ public:
         return height * weight * setGenderPoints();
     }
 
-    Alien operator+(Alien const &obj)
+    // Overload the '+' operator for "breeding"
+    Alien operator+(Alien const &theOtherAlien)
     {
         srand(time(NULL)); // seed the randomizer
 
-        Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the result of the addition operation of two aliens
+        Alien offSpringAlien = Alien(theOtherAlien.weight, theOtherAlien.height, theOtherAlien.gender); // initialize the offSpringAlien with values from theOtherAlien
 
-        alienObj.weight = (weight + obj.weight) / 2;
-        alienObj.height = (height + obj.height) / 2;
-        alienObj.gender = ((rand() % 2 + 1) == 1 ? 'M' : 'F'); // Randomize a number between 1 and 2 to represent Male or Female where Male = 1; Female = 2;
+        offSpringAlien.weight = (this->weight + theOtherAlien.weight) / 2; // this->weight is the weight of the Alien of the other 'operand' (left side), theOtherAlien.weight is the weight of the other Alien of the other 'operand; (right side)
+        offSpringAlien.height = (this->height + theOtherAlien.height) / 2; // this->height is the height of the Alien of the other 'operand' (left side), theOtherAlien.height is the height of the other Alien of the other 'operand; (right side)
+        offSpringAlien.gender = ((rand() % 2 + 1) == 1 ? 'M' : 'F');       // Randomize a number between 1 and 2 to represent Male or Female where Male = 1; Female = 2;
 
-        return alienObj;
+        return offSpringAlien;
     }
 
+    // Overload the '==' operator to compare two Aliens
     bool operator==(Alien &obj)
     {
         Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
@@ -80,6 +82,7 @@ public:
         }
     }
 
+    // Overload the '!=' operator to compare two Aliens
     bool operator!=(Alien &obj)
     {
         Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
@@ -93,6 +96,8 @@ public:
             return false;
         }
     }
+
+    // Overload the '>' operator to compare two Aliens
     bool operator>(Alien &obj)
     {
         Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
@@ -107,6 +112,7 @@ public:
         }
     }
 
+    // Overload the '>=' operator to compare two Aliens
     bool operator>=(Alien &obj)
     {
         Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
@@ -121,6 +127,7 @@ public:
         }
     }
 
+    // Overload the '<' operator to compare two Aliens
     bool operator<(Alien &obj)
     {
         Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
@@ -135,6 +142,7 @@ public:
         }
     }
 
+    // Overload the '<=' operator to compare two Aliens
     bool operator<=(Alien &obj)
     {
         Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
