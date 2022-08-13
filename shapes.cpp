@@ -94,7 +94,6 @@ public:
         result = base * height;
     }
 
-    // float calculatePerimeter(float b, float h)
     void calculatePerimeter()
     {
         result = 2 * (base + height);
@@ -113,16 +112,12 @@ public:
         cout << "The result is: " << result;
     }
 
-    // void drawShape(int b, int h)
     void drawShape()
     {
         // base shape is a rectangle
         cout << endl;
-        // for (int y = 1; y <= h / 2; y++)
         for (int y = 1; y <= height / 2; y++)
         {
-
-            // cout << repl('.', b) << endl;
             cout << repl('.', base) << endl;
         }
         cout << endl;
