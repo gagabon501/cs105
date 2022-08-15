@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Aug 13 06:43:26 2022
+# Make data base, printed on Mon Aug 15 21:21:09 2022
 
 # Variables
 
@@ -99,13 +99,13 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 7133
+VSCODE_PID = 47306
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/4719,unix/pop-os:/tmp/.ICE-unix/4719
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/2731,unix/pop-os:/tmp/.ICE-unix/2731
 # automatic
 *F = $(notdir $*)
 # environment
@@ -149,7 +149,7 @@ LC_MONETARY = en_US.UTF-8
 # environment
 LC_TIME = en_US.UTF-8
 # environment
-INVOCATION_ID = 755857779bdc4f24890be17adb05e810
+INVOCATION_ID = 75b93defd3964d7aa700c3a5be050708
 # environment
 USERNAME = gag501
 # environment
@@ -181,7 +181,7 @@ GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 4742
+SYSTEMD_EXEC_PID = 2755
 # environment
 DISPLAY = :1
 # environment
@@ -193,11 +193,11 @@ DEFAULTS_PATH = /usr/share/gconf/pop.default.path
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 4385
+MANAGERPID = 2435
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 7133
+GIO_LAUNCHED_DESKTOP_FILE_PID = 47306
 # environment
 _ = /usr/share/code/code
 # environment
@@ -211,7 +211,7 @@ nodebook_jwtPrivateKey = Wakoy1298
 # environment
 NVM_CD_FLAGS = 
 # environment
-JOURNAL_STREAM = 8:147271
+JOURNAL_STREAM = 8:42480
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -251,9 +251,9 @@ LC_IDENTIFICATION = en_US.UTF-8
 
 # Directories
 
-# . (device 2051, inode 6349105): 14 files, no impossibilities.
+# . (device 2051, inode 6349105): 17 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -279,9 +279,6 @@ all:
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
- 
-make: *** No rule to make target 'all'.  Stop.
-
 #  File has not been updated.
 
 # Not a target:
@@ -299,6 +296,9 @@ GNUmakefile:
 #  Failed to be updated.
 
 # files hash-table stats:
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 # Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
@@ -306,12 +306,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 22 / storage = 190 B / avg = 8 B
-# current buf: size = 8162 B / used = 190 B / count = 22 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 215 B / avg = 8 B
+# current buf: size = 8162 B / used = 215 B / count = 25 / avg = 8 B
 
-# strcache performance: lookups = 25 / hit rate = 12%
+# strcache performance: lookups = 28 / hit rate = 10%
 # hash-table stats:
-# Load=22/8192=0%, Rehash=0, Collisions=0/25=0%
-# Finished Make data base on Sat Aug 13 06:43:26 2022
+# Load=25/8192=0%, Rehash=0, Collisions=0/28=0%
+# Finished Make data base on Mon Aug 15 21:21:09 2022
 
  

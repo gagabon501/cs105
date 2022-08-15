@@ -2,6 +2,7 @@
 #include <string>
 #include <stdlib.h>
 #include <time.h>
+#include "gglib.cpp" //own library of functions
 
 using namespace std;
 
@@ -71,8 +72,8 @@ public:
     // Overload the '==' operator to compare two Aliens
     bool operator==(Alien &obj)
     {
-        Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
-        if (getPrestige() == alienObj.getPrestige())
+
+        if (this->getPrestige() == obj.getPrestige())
         {
             return true;
         }
@@ -85,9 +86,8 @@ public:
     // Overload the '!=' operator to compare two Aliens
     bool operator!=(Alien &obj)
     {
-        Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
 
-        if (getPrestige() != alienObj.getPrestige())
+        if (this->getPrestige() != obj.getPrestige())
         {
             return true;
         }
@@ -100,9 +100,8 @@ public:
     // Overload the '>' operator to compare two Aliens
     bool operator>(Alien &obj)
     {
-        Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
 
-        if (getPrestige() > alienObj.getPrestige())
+        if (this->getPrestige() > obj.getPrestige())
         {
             return true;
         }
@@ -115,9 +114,8 @@ public:
     // Overload the '>=' operator to compare two Aliens
     bool operator>=(Alien &obj)
     {
-        Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
 
-        if (getPrestige() >= alienObj.getPrestige())
+        if (this->getPrestige() >= obj.getPrestige())
         {
             return true;
         }
@@ -130,9 +128,8 @@ public:
     // Overload the '<' operator to compare two Aliens
     bool operator<(Alien &obj)
     {
-        Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
 
-        if (getPrestige() < alienObj.getPrestige())
+        if (this->getPrestige() < obj.getPrestige())
         {
             return true;
         }
@@ -145,9 +142,8 @@ public:
     // Overload the '<=' operator to compare two Aliens
     bool operator<=(Alien &obj)
     {
-        Alien alienObj = Alien(obj.weight, obj.height, obj.gender); // the other operand
 
-        if (getPrestige() <= alienObj.getPrestige())
+        if (this->getPrestige() <= obj.getPrestige())
         {
             return true;
         }
@@ -158,16 +154,54 @@ public:
     }
 };
 
-int main()
+// Function to create the Aliens and save those Aliens in a vector variable to be returned to a calling function/routine
+vector<Alien> createAliens()
 {
-    Alien Alien1(3, 5, 'M'), Alien2(4, 7, 'F'), Alien3(6, 8, 'M'), Alien4(7, 9, 'F');
+    vector<Alien> Aliens; // variable to contain the created aliens
 
-    Alien Alien5 = Alien1 + Alien2; // Offspring from Alien1 & Alien2
-    Alien Alien6 = Alien3 + Alien4; // Offspring from Alien3 & Alien4
+    // Create the aliens and save to the vector variable Aliens
+    Aliens.push_back(Alien(3, 5, 'M')); // aka Alien1
+    Aliens.push_back(Alien(4, 7, 'F')); // aka Alien2
+    Aliens.push_back(Alien(6, 8, 'M')); // aka Alien3
+    Aliens.push_back(Alien(7, 9, 'F')); // aka Alien4
 
-    // cout << "Alien5 (w/h/g/p): " << Alien5.getWeight() << "/" << Alien5.getHeight() << "/" << Alien5.getGender() << "/" << Alien5.getPrestige() << endl;
-    // cout << "Alien6 (w/h/g/p): " << Alien6.getWeight() << "/" << Alien6.getHeight() << "/" << Alien6.getGender() << "/" << Alien6.getPrestige() << endl;
+    cout << "\nPairs created" << endl;
+    cout << "===============" << endl;
+    cout << "Alien1 (w/h/g): " << Aliens[0].getWeight() << "/" << Aliens[0].getHeight() << "/" << Aliens[0].getGender() << endl;
+    cout << "Alien2 (w/h/g): " << Aliens[1].getWeight() << "/" << Aliens[1].getHeight() << "/" << Aliens[1].getGender() << endl;
+    cout << "Alien3 (w/h/g): " << Aliens[2].getWeight() << "/" << Aliens[2].getHeight() << "/" << Aliens[2].getGender() << endl;
+    cout << "Alien4 (w/h/g): " << Aliens[3].getWeight() << "/" << Aliens[3].getHeight() << "/" << Aliens[3].getGender() << endl;
+    return Aliens;
+}
 
+// This function calls createAliens() to create the Aliens and Offsprings are then created by using the overloaded operator '+'
+vector<Alien> createOffsprings()
+{
+    vector<Alien> Aliens = createAliens();
+    vector<Alien> AlienOffsprings; // to hold the offsprings
+
+    AlienOffsprings.push_back(Aliens[0] + Aliens[1]); // Offspring from Aliens[0] & Aliens[1]. The '+' operator here has been overloaded
+    AlienOffsprings.push_back(Aliens[2] + Aliens[3]); // Offspring from Aliens[2] & Aliens[3]. The '+' operator here has been overloaded
+
+    cout << "\nOffsprings created...Alien5 and Alien6";
+    cout << "\n======================================\n";
+    cout << "Alien5 (w/h/g/p): " << AlienOffsprings[0].getWeight() << "/" << AlienOffsprings[0].getHeight() << "/" << AlienOffsprings[0].getGender() << "/" << AlienOffsprings[0].getPrestige() << endl;
+    cout << "Alien6 (w/h/g/p): " << AlienOffsprings[1].getWeight() << "/" << AlienOffsprings[1].getHeight() << "/" << AlienOffsprings[1].getGender() << "/" << AlienOffsprings[1].getPrestige() << endl;
+
+    return AlienOffsprings;
+}
+
+// This function calls createOffsprings(). createOffsprings() calls createAliens()
+void comparePrestige()
+{
+
+    vector<Alien> AlienOffsprings = createOffsprings();
+
+    Alien Alien5 = AlienOffsprings[0];
+    Alien Alien6 = AlienOffsprings[1];
+
+    cout << "\nOffspring Prestige Comparison" << endl;
+    cout << "==============================" << endl;
     if (Alien5 == Alien6)
     {
         cout << "Alien5 == Alien6 ? true" << endl;
@@ -221,6 +255,55 @@ int main()
     {
         cout << "Alien5 <= Alien6 ? false" << endl;
     };
+}
 
+/***********************************************************************************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * Function Name: showMainMenu()
+ * Purpose      : Function to show the Menu for the Administrator of the system.
+ * Parameters   : None
+ * Returns      : None
+ * Author       : Gilberto Gabon
+ *************************************************************************************************************************************************/
+void showMainMenu()
+{
+
+    int choice = 0;
+    vector<string> menu = {
+        "\n=============================",
+        "          Main Menu",
+        "=============================",
+        "1. Create Alien Pairs        ",
+        "2. Create Offsprings         ",
+        "3. Compare Offspring Prestige",
+        "4. Exit",
+        "=============================",
+        ""};
+
+    while (choice != 4)
+    {
+        choice = showMenu(menu);
+
+        switch (choice)
+        {
+        case 1:
+            createAliens();
+            break;
+        case 2:
+            createOffsprings();
+            break;
+        case 3:
+            comparePrestige();
+            break;
+
+        default:
+            break;
+        }
+    }
+}
+
+int main()
+{
+    showMainMenu();
     return 0;
 }
