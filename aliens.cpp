@@ -10,14 +10,16 @@ class Alien
 {
     int weight, height;
     char gender;
+    string name;
 
 public:
     // Constructor
-    Alien(int w, int h, char g)
+    Alien(int w, int h, char g, string n)
     {
         weight = w;
         height = h;
         gender = g;
+        name = n;
     }
 
     // Getterfunctions
@@ -50,6 +52,31 @@ public:
         return gender;
     }
 
+    string getAlienName()
+    {
+        return name;
+    }
+
+    // setter for alien name
+    void setAlienName(string alienName)
+    {
+        name = alienName;
+    }
+
+    int getGenderPoint(char g)
+    {
+        int gp = 0;
+        if (g == 'M')
+        {
+            gp = 2;
+        }
+        else
+        {
+            gp = 3;
+        }
+        return gp;
+    }
+
     int getPrestige()
     {
         return height * weight * setGenderPoints();
@@ -60,12 +87,12 @@ public:
     {
         srand(time(NULL)); // seed the randomizer
 
-        Alien offSpringAlien = Alien(theOtherAlien.weight, theOtherAlien.height, theOtherAlien.gender); // initialize the offSpringAlien with values from theOtherAlien
+        Alien offSpringAlien = Alien(theOtherAlien.weight, theOtherAlien.height, theOtherAlien.gender, theOtherAlien.name); // initialize the offSpringAlien with values from theOtherAlien
 
         offSpringAlien.weight = (this->weight + theOtherAlien.weight) / 2; // this->weight is the weight of the Alien of the other 'operand' (left side), theOtherAlien.weight is the weight of the other Alien of the other 'operand; (right side)
         offSpringAlien.height = (this->height + theOtherAlien.height) / 2; // this->height is the height of the Alien of the other 'operand' (left side), theOtherAlien.height is the height of the other Alien of the other 'operand; (right side)
         offSpringAlien.gender = ((rand() % 2 + 1) == 1 ? 'M' : 'F');       // Randomize a number between 1 and 2 to represent Male or Female where Male = 1; Female = 2;
-
+        offSpringAlien.name = " ";
         return offSpringAlien;
     }
 
@@ -154,23 +181,40 @@ public:
     }
 };
 
+void displayAlien(Alien alien)
+{
+    cout << "\n---------------------------------------------------" << endl;
+    cout << "Alien Name: " << alien.getAlienName() << endl;
+    cout << "    Weight: " << alien.getWeight() << endl;
+    cout << "    Height: " << alien.getHeight() << endl;
+    cout << "    Gender: " << alien.getGender() << " (gender point = " << alien.getGenderPoint(alien.getGender()) << ")" << endl;
+    cout << "  Prestige: " << alien.getPrestige() << " (p = weight * height * genderPoints)" << endl;
+    cout << "---------------------------------------------------" << endl;
+}
+
 // Function to create the Aliens and save those Aliens in a vector variable to be returned to a calling function/routine
 vector<Alien> createAliens()
 {
     vector<Alien> Aliens; // variable to contain the created aliens
 
     // Create the aliens and save to the vector variable Aliens
-    Aliens.push_back(Alien(3, 5, 'M')); // aka Alien1
-    Aliens.push_back(Alien(4, 7, 'F')); // aka Alien2
-    Aliens.push_back(Alien(6, 8, 'M')); // aka Alien3
-    Aliens.push_back(Alien(7, 9, 'F')); // aka Alien4
+    Aliens.push_back(Alien(3, 5, 'M', "Alien1")); // aka Alien1
+    Aliens.push_back(Alien(4, 7, 'F', "Alien2")); // aka Alien2
+    Aliens.push_back(Alien(6, 8, 'M', "Alien3")); // aka Alien3
+    Aliens.push_back(Alien(7, 9, 'F', "Alien4")); // aka Alien4
 
-    cout << "\nPairs created" << endl;
-    cout << "===============" << endl;
-    cout << "Alien1 (w/h/g): " << Aliens[0].getWeight() << "/" << Aliens[0].getHeight() << "/" << Aliens[0].getGender() << endl;
-    cout << "Alien2 (w/h/g): " << Aliens[1].getWeight() << "/" << Aliens[1].getHeight() << "/" << Aliens[1].getGender() << endl;
-    cout << "Alien3 (w/h/g): " << Aliens[2].getWeight() << "/" << Aliens[2].getHeight() << "/" << Aliens[2].getGender() << endl;
-    cout << "Alien4 (w/h/g): " << Aliens[3].getWeight() << "/" << Aliens[3].getHeight() << "/" << Aliens[3].getGender() << endl;
+    cout << "\nAlien Pairs Created" << endl;
+    cout << "=====================" << endl;
+
+    // cout << "Alien1 (w/h/g): " << Aliens[0].getWeight() << "/" << Aliens[0].getHeight() << "/" << Aliens[0].getGender() << endl;
+    // cout << "Alien2 (w/h/g): " << Aliens[1].getWeight() << "/" << Aliens[1].getHeight() << "/" << Aliens[1].getGender() << endl;
+    // cout << "Alien3 (w/h/g): " << Aliens[2].getWeight() << "/" << Aliens[2].getHeight() << "/" << Aliens[2].getGender() << endl;
+    // cout << "Alien4 (w/h/g): " << Aliens[3].getWeight() << "/" << Aliens[3].getHeight() << "/" << Aliens[3].getGender() << endl;
+    for (int i = 0; i < (int)Aliens.size(); i++)
+    {
+        displayAlien(Aliens[i]);
+    }
+
     return Aliens;
 }
 
@@ -183,10 +227,18 @@ vector<Alien> createOffsprings()
     AlienOffsprings.push_back(Aliens[0] + Aliens[1]); // Offspring from Aliens[0] & Aliens[1]. The '+' operator here has been overloaded
     AlienOffsprings.push_back(Aliens[2] + Aliens[3]); // Offspring from Aliens[2] & Aliens[3]. The '+' operator here has been overloaded
 
+    AlienOffsprings[0].setAlienName("Alien5");
+    AlienOffsprings[1].setAlienName("Alien6");
+
     cout << "\nOffsprings created...Alien5 and Alien6";
     cout << "\n======================================\n";
-    cout << "Alien5 (w/h/g/p): " << AlienOffsprings[0].getWeight() << "/" << AlienOffsprings[0].getHeight() << "/" << AlienOffsprings[0].getGender() << "/" << AlienOffsprings[0].getPrestige() << endl;
-    cout << "Alien6 (w/h/g/p): " << AlienOffsprings[1].getWeight() << "/" << AlienOffsprings[1].getHeight() << "/" << AlienOffsprings[1].getGender() << "/" << AlienOffsprings[1].getPrestige() << endl;
+
+    for (int i = 0; i < (int)AlienOffsprings.size(); i++)
+    {
+        displayAlien(AlienOffsprings[i]);
+    }
+    // cout << "Alien5 (w/h/g/p): " << AlienOffsprings[0].getWeight() << "/" << AlienOffsprings[0].getHeight() << "/" << AlienOffsprings[0].getGender() << "/" << AlienOffsprings[0].getPrestige() << endl;
+    // cout << "Alien6 (w/h/g/p): " << AlienOffsprings[1].getWeight() << "/" << AlienOffsprings[1].getHeight() << "/" << AlienOffsprings[1].getGender() << "/" << AlienOffsprings[1].getPrestige() << endl;
 
     return AlienOffsprings;
 }
