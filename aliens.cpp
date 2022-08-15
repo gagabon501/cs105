@@ -206,10 +206,6 @@ vector<Alien> createAliens()
     cout << "\nAlien Pairs Created" << endl;
     cout << "=====================" << endl;
 
-    // cout << "Alien1 (w/h/g): " << Aliens[0].getWeight() << "/" << Aliens[0].getHeight() << "/" << Aliens[0].getGender() << endl;
-    // cout << "Alien2 (w/h/g): " << Aliens[1].getWeight() << "/" << Aliens[1].getHeight() << "/" << Aliens[1].getGender() << endl;
-    // cout << "Alien3 (w/h/g): " << Aliens[2].getWeight() << "/" << Aliens[2].getHeight() << "/" << Aliens[2].getGender() << endl;
-    // cout << "Alien4 (w/h/g): " << Aliens[3].getWeight() << "/" << Aliens[3].getHeight() << "/" << Aliens[3].getGender() << endl;
     for (int i = 0; i < (int)Aliens.size(); i++)
     {
         displayAlien(Aliens[i]);
@@ -237,8 +233,6 @@ vector<Alien> createOffsprings()
     {
         displayAlien(AlienOffsprings[i]);
     }
-    // cout << "Alien5 (w/h/g/p): " << AlienOffsprings[0].getWeight() << "/" << AlienOffsprings[0].getHeight() << "/" << AlienOffsprings[0].getGender() << "/" << AlienOffsprings[0].getPrestige() << endl;
-    // cout << "Alien6 (w/h/g/p): " << AlienOffsprings[1].getWeight() << "/" << AlienOffsprings[1].getHeight() << "/" << AlienOffsprings[1].getGender() << "/" << AlienOffsprings[1].getPrestige() << endl;
 
     return AlienOffsprings;
 }
