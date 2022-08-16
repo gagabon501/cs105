@@ -10,7 +10,7 @@ class Alien
 {
     int weight, height;
     char gender;
-    string name;
+    string name; // To store the name of the alien
 
 public:
     // Constructor
@@ -61,20 +61,6 @@ public:
     void setAlienName(string alienName)
     {
         name = alienName;
-    }
-
-    int getGenderPoint(char g)
-    {
-        int gp = 0;
-        if (g == 'M')
-        {
-            gp = 2;
-        }
-        else
-        {
-            gp = 3;
-        }
-        return gp;
     }
 
     int getPrestige()
@@ -187,7 +173,7 @@ void displayAlien(Alien alien)
     cout << "Alien Name: " << alien.getAlienName() << endl;
     cout << "    Weight: " << alien.getWeight() << endl;
     cout << "    Height: " << alien.getHeight() << endl;
-    cout << "    Gender: " << alien.getGender() << " (gender point = " << alien.getGenderPoint(alien.getGender()) << ")" << endl;
+    cout << "    Gender: " << alien.getGender() << " (gender point = " << alien.setGenderPoints() << ")" << endl;
     cout << "  Prestige: " << alien.getPrestige() << " (p = weight * height * genderPoints)" << endl;
     cout << "---------------------------------------------------" << endl;
 }
@@ -217,8 +203,9 @@ vector<Alien> createAliens()
 // This function calls createAliens() to create the Aliens and Offsprings are then created by using the overloaded operator '+'
 vector<Alien> createOffsprings()
 {
-    vector<Alien> Aliens = createAliens();
-    vector<Alien> AlienOffsprings; // to hold the offsprings
+    vector<Alien> Aliens = createAliens(); // This creates the Aliens (Aliens1 to Aliens4) and displays the aliens' information
+
+    vector<Alien> AlienOffsprings; // Vectore variable of type 'Alien' to hold the created offsprings
 
     AlienOffsprings.push_back(Aliens[0] + Aliens[1]); // Offspring from Aliens[0] & Aliens[1]. The '+' operator here has been overloaded
     AlienOffsprings.push_back(Aliens[2] + Aliens[3]); // Offspring from Aliens[2] & Aliens[3]. The '+' operator here has been overloaded
