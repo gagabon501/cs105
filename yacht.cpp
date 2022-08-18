@@ -6,20 +6,26 @@ using namespace std;
 
 class Location
 {
-
-public:
     int degrees;
     float minutes;
     char direction;
+
+public:
     string latitude = "", longitude = "";
 
-    void getpos(int deg, float min, char dir)
+    void getpos()
     {
-        degrees = deg;
-        minutes = min;
-        direction = toupper(dir);
 
-        if (toupper(dir) == 'N' || toupper(dir) == 'S')
+        char dir;
+        cout << "Input the degrees between 0 and 180: ";
+        cin >> degrees;
+        cout << "Input minutes between 0 and 60: ";
+        cin >> minutes;
+        cout << "Input direction (E/W/N/S): ";
+        cin >> dir;
+        direction = toupper(dir); // to convert the direction to uppercase
+
+        if (toupper(direction) == 'N' || toupper(direction) == 'S')
         {
             latitude = to_string(degrees) + '\xF8' + to_string((int)minutes) + "\'" + " " + direction + " Latitude";
         }
@@ -32,42 +38,31 @@ public:
 
 class Yacht : public Location
 {
-    int serialNum;
-    int numObjects;
-    int deg;
-    float mins;
-    char dir;
+
+    int serialNum, objectNum;
 
 public:
-    Yacht(int serialNo, int numObj)
+    Yacht(int sn, int objnum)
     {
-        serialNum = serialNo;
-        numObjects = numObj;
+        serialNum = sn;
+        objectNum = objnum;
     }
-
     void get_pos()
     {
-        cout << "Input the degrees between 0 and 180: ";
-        cin >> deg;
-        cout << "Input minutes between 0 and 60: ";
-        cin >> mins;
-        cout << "Input direction (E/W/N/S): ";
-        cin >> dir;
-        getpos(deg, mins, dir);
+        getpos();
     }
 
     void display()
     {
         cout << "\nThe ship serial number is: " << serialNum << endl;
-        cout << "and it's position is: " << latitude << "  " << longitude << endl;
+        cout << "and it's position is: " << latitude << "  " << longitude << endl; // the latitude and longitude variables here were inherited from Location class
     }
 };
 
 int main()
 {
 
-    cout << "\n************************Ocean Race 2021-22************************" << endl
-         << endl;
+    cout << "\n************************Ocean Race 2021-22************************\n\n";
 
     Yacht yacht1(1, 1);
     cout << "**************************************" << endl;
