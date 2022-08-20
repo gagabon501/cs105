@@ -1,20 +1,44 @@
+/***********************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * File         : shapes.cpp
+ * Purpose      : Scenario 3: A program to create shapes and display their areas and perimeter values.This program showcases Object Oriented Programming (OOP) in C++.
+ *                This program showcases classes creation, inheritance, encapsulation, and polymorphism through function overriding
+ * Parameters   : N/A
+ * Returns      : N/A
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ ************************************************************************************/
+
 #include <iostream>
 #include <string>
 #include <math.h>
 #include <vector>
-#include "gglib.cpp"
+#include "gglib.cpp" //own library of functions
 
 using namespace std;
 
-// Class definitions
-
 /***********************************************************************************************************************************************
- * Title        : CS-105 Development Principles Assessment 1
+ * Title        : CS-105 Development Principles-2 Assessment 1
  * Class Name   : Shapes
- * Purpose      : Base class for all shapes
- * Parameters   : N/A
+ * Purpose      : This is a foundational (base) class for which all types of shapes inherits. This class has the following:
+ *                Properties    : private  float base = 0.0, height = 0.0, side = 0.0, radius = 0.0, result = 0.0;
+ *                Methods       : public string repl(char charToDisplay, int dispQty) --> general purpose function to display a series of characters - sort of replicating the display. This is useful for displaying lines.
+ *                              : public float getBase() --> getter function to get the base of the shape
+ *                              : public float getHeight() --> getter function to the height of the shape
+ *                              : public float getSide() --> getter function to get side of the shape
+ *                              : public float getRadius() --> getter function to get the radius of the circle
+ *                              : public float getResult() --> getter function to return the value of the 'result' property
+ *                              : public void setBase(float b) --> setter function to set the value of the base of the shape
+ *                              : public void setHeight(float h) --> setter function to set the value of the height of the shape
+ *                              : public void setSide(float s) --> setter function to set the value of the height of the shape
+ *                              : public void setRadius(float r) --> setter function to set the value of the radius of the circle
+ *                              : public void calculateArea() --> method to calculate the area of the shape. Initial computation is based on the shape of a rectangle
+ *                              : public void calculatePerimeter() --> method to calculate the perimeter of the shape. Initial computation is based on the shape of a rectangle
+ *                              : public void getData() --> method to get the dimension of the shape. Initial computation is based on the shape of a rectangle
+ *                              : public void giveResult() --> method to display the value of the 'result' property. This property is updated during the computation of either area or perimeter
+ *                              : public void drawShape() --> method to draw the shape. Initial drawing is based on the shape of a rectangle
+ * Constructor  : None
  * Returns      : N/A
- * Author       : Gilberto Gabon
+ * Author       : Gilberto Gabon - Student No.: 270204759
  *************************************************************************************************************************************************/
 class Shapes
 
@@ -23,14 +47,6 @@ private:
     float base = 0.0, height = 0.0, side = 0.0, radius = 0.0, result = 0.0;
 
 public:
-    /***********************************************************************************************************************************************
-     * Title        : CS-105 Development Principles Assessment 1
-     * Function Name: string repl(char charToDisplay, int dispQty)
-     * Purpose      : General purpose function to display a series of characters - sort of replicating the display. This is useful for displaying lines.
-     * Parameters   : char charToDisplay --> the character to display repeatedly, int dispQty --> number of times to display the character.
-     * Returns      : Returns a 'string' which contains the replicated characters.
-     * Author       : Gilberto Gabon
-     *************************************************************************************************************************************************/
     string repl(char charToDisplay, int dispQty)
     {
         string returnedString = "";
@@ -125,6 +141,18 @@ public:
     }
 };
 
+/***********************************************************************************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * Class Name   : Square. This inherits the Shapes class
+ * Purpose      : This is a derived class that inherits the Shapes class
+ *                Properties    : as inherited from Shapes class
+ *                Methods       : as inherited from Shapes class plus
+ *                              : public void getData() --> overrides the getData() method from the Shapes class. This method now only asks for the side of the shape.
+ *                              : public void drawShape() --> overrides the drawShape() method from the Shapes class. This draws the square shape.
+ * Constructor  : None
+ * Returns      : N/A
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ *************************************************************************************************************************************************/
 class Square : public Shapes
 {
 
@@ -151,6 +179,20 @@ public:
     }
 };
 
+/***********************************************************************************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * Class Name   : Triangle. This inherits the Shapes class
+ * Purpose      : This is a derived class that inherits the Shapes class
+ *                Properties    : as inherited from Shapes class
+ *                Methods       : as inherited from Shapes class plus
+ *                              : public void getData() --> overrides the getData() method from the Shapes class. This method asks for an additional input of the side of the triangle.
+ *                              : public void calculateArea() --> overrides the calculateArea() method from the Shapes class. This calculates the area of a triangle
+ *                              : public void calculatePerimeter() --> overrides the calculatePerimeter() method from the Shapes class. This calculates the perimeter of a triangle
+ *                              : public void drawShape() --> overrides the drawShape() method from the Shapes class. This draws the triangle shape.
+ * Constructor  : None
+ * Returns      : N/A
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ *************************************************************************************************************************************************/
 class Triangle : public Shapes
 {
 
@@ -203,6 +245,20 @@ public:
     }
 };
 
+/***********************************************************************************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * Class Name   : Circle. This inherits the Shapes class
+ * Purpose      : This is a derived class that inherits the Shapes class
+ *                Properties    : as inherited from Shapes class
+ *                Methods       : as inherited from Shapes class plus
+ *                              : public void getData() --> overrides the getData() method from the Shapes class. This method asks the radius of the circle.
+ *                              : public void calculateArea() --> overrides the calculateArea() method from the Shapes class. This calculates the area of the circle
+ *                              : public void calculatePerimeter() --> overrides the calculatePerimeter() method from the Shapes class. This calculates the perimeter of the circle
+ *                              : public void drawShape() --> overrides the drawShape() method from the Shapes class. This draws the circle shape.
+ * Constructor  : None
+ * Returns      : N/A
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ *************************************************************************************************************************************************/
 class Circle : public Shapes
 {
 
@@ -280,8 +336,6 @@ public:
 };
 
 // Functions declarations
-// string repl(char charToDisplay, int dispQty);
-// int showMenu(vector<string> menu);
 void showSquare();
 void showRectangle();
 void showTriangle();
@@ -295,6 +349,14 @@ int main()
     return 0;
 }
 
+/***********************************************************************************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * Function Name: showSquare()
+ * Purpose      : Function to compute the area and perimeter of a square. This also draws the square shape based on the inputted dimensions.
+ * Parameters   : None
+ * Returns      : None
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ *************************************************************************************************************************************************/
 void showSquare()
 {
 
@@ -343,6 +405,15 @@ void showSquare()
         }
     }
 }
+
+/***********************************************************************************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * Function Name: showRectangle()
+ * Purpose      : Function to compute the area and perimeter of a rectangle. This also draws the rectangle shape based on the inputted dimensions.
+ * Parameters   : None
+ * Returns      : None
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ *************************************************************************************************************************************************/
 
 void showRectangle()
 {
@@ -393,6 +464,14 @@ void showRectangle()
     }
 }
 
+/***********************************************************************************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * Function Name: showTriangle()
+ * Purpose      : Function to compute the area and perimeter of a triangle. This also draws the triangle shape based on the inputted dimensions.
+ * Parameters   : None
+ * Returns      : None
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ *************************************************************************************************************************************************/
 void showTriangle()
 {
     Triangle t;
@@ -442,6 +521,14 @@ void showTriangle()
     }
 }
 
+/***********************************************************************************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * Function Name: showCircle()
+ * Purpose      : Function to compute the area and perimeter of a circle. This also draws the circle shape based on the inputted dimensions.
+ * Parameters   : None
+ * Returns      : None
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ *************************************************************************************************************************************************/
 void showCircle()
 {
 
@@ -495,7 +582,7 @@ void showCircle()
 /***********************************************************************************************************************************************
  * Title        : CS-105 Development Principles-2 Assessment 1
  * Function Name: showMainMenu()
- * Purpose      : Function to show the Menu for the Administrator of the system.
+ * Purpose      : Function to show the Main Menu of the program
  * Parameters   : None
  * Returns      : None
  * Author       : Gilberto Gabon
