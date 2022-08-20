@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * File         : aliens.cpp
+ * Purpose      : Scenario 4: A program to create a game universe for an Alien based gane.This program showcases Object Oriented Programming (OOP) in C++.
+ *                This program showcases class creation with constructor, encapsulation, and polymorphism through operator overloading
+ * Parameters   : N/A
+ * Returns      : N/A
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ ************************************************************************************/
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -5,6 +15,32 @@
 #include "gglib.cpp" //own library of functions
 
 using namespace std;
+
+/***********************************************************************************************************************************************
+ * Title        : CS-105 Development Principles-2 Assessment 1
+ * Class Name   : Alien
+ * Purpose      : This is a class for creating Aliens. This class has the following:
+ *                Properties    : private  int weight, height, char gender, string name;
+ *                Methods       : public Alien(int w, int h, char g, string n) --> the Constructor for this class
+ *                              : public int getWeight() --> getter function to get the weight of the Alien
+ *                              : public int getHeight() --> getter function to get the weight of the Alien
+ *                              : public char getGender() --> getter function to get the gender of the Alien
+ *                              : public string getAlienName() --> getter function to get the name of the Alien
+ *                              : public int getPrestige() --> getter function to get the prestige of the Alien
+ *                              : public int setGenderPoints() --> setter function to set the gender points of an Alien
+ *                              : public void setAlienName(string alienName) --> setter function to set the name of the Alien
+ *          Overloaded Operators: '+' operator for "breeding"
+ *                                '==' operator to compare two Aliens
+ *                                '!=' operator to compare two Aliens
+ *                                '>' operator to compare two Aliens
+ *                                '>=' operator to compare two Aliens
+ *                                '<' operator to compare two Aliens
+ *                                '<=' operator to compare two Aliens
+ *
+ * Constructor  : None
+ * Returns      : N/A
+ * Author       : Gilberto Gabon - Student No.: 270204759
+ *************************************************************************************************************************************************/
 
 class Alien
 {
@@ -167,6 +203,7 @@ public:
     }
 };
 
+// Displays Alien information
 void displayAlien(Alien alien)
 {
     cout << "\n---------------------------------------------------" << endl;
@@ -296,7 +333,7 @@ void comparePrestige()
  * Purpose      : Function to show the Menu for the Administrator of the system.
  * Parameters   : None
  * Returns      : None
- * Author       : Gilberto Gabon
+ * Author       : Gilberto Gabon - Student No.: 270204759
  *************************************************************************************************************************************************/
 void showMainMenu()
 {
